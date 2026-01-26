@@ -36,6 +36,7 @@ export const Intro = () => {
                             <ExternalLink />
                         </Badge>
                     </Link>
+                    {/*
                     <Link href={'https://www.youtube.com/@BrazilianBunker'} target={'_blank'}>
                         <Badge className={'bg-red-500 text-white'}>
                             <Youtube />
@@ -43,6 +44,7 @@ export const Intro = () => {
                             <ExternalLink />
                         </Badge>
                     </Link>
+                    */}
                     <Link href={'https://medium.com/@berohlfs'} target={'_blank'}>
                         <Badge variant={'secondary'}>
                             <Newspaper />
@@ -50,6 +52,7 @@ export const Intro = () => {
                             <ExternalLink />
                         </Badge>
                     </Link>
+                     {/*
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Badge className={'bg-gray-600 text-white cursor-pointer'}>
@@ -74,6 +77,7 @@ export const Intro = () => {
                             </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
+                    */}
                 </nav>
 
             </div>

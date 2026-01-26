@@ -100,18 +100,6 @@ export default async function Home() {
 
       <Intro />
 
-      <Subtitle title={'YouTube Videos'} Icon={Youtube} />
-
-      <PlatformSpecs
-        link={'https://www.youtube.com/@BrazilianBunker'}
-        title={channel.items[0].snippet.title}
-        image_url={channel.items[0].snippet.thumbnails.default.url}
-        specs={[
-          { label: 'subscribers', count: channel.items[0].statistics.subscriberCount },
-          { label: 'total views', count: channel.items[0].statistics.viewCount },
-          { label: 'videos', count: channel.items[0].statistics.videoCount },
-        ]} />
-
       <Subtitle title={'GitHub Projects'} Icon={Github} />
 
       <PlatformSpecs
@@ -133,6 +121,18 @@ export default async function Home() {
       <Subtitle title={'Certifications'} Icon={Verified} />
 
       <Certifications />
+
+      <Subtitle title={'YouTube Videos'} Icon={Youtube} />
+
+      <PlatformSpecs
+        link={'https://www.youtube.com/@BrazilianBunker'}
+        title={channel.items[0].snippet.title}
+        image_url={channel.items[0].snippet.thumbnails.default.url}
+        specs={[
+          { label: 'subscribers', count: channel.items[0].statistics.subscriberCount },
+          { label: 'total views', count: channel.items[0].statistics.viewCount },
+          { label: 'videos', count: channel.items[0].statistics.videoCount },
+        ]} />
 
     </main>
 
