@@ -2,10 +2,9 @@
 import Image from "next/image"
 import Link from "next/link"
 // Icons
-import { ExternalLink, Github, GraduationCap, Linkedin, Newspaper, Youtube } from "lucide-react"
+import { ExternalLink, Github, Linkedin, Newspaper } from "lucide-react"
 // Shadcn
 import { Badge } from "@/components/ui/badge"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export const Intro = () => {
     return (
