@@ -48,6 +48,7 @@ export default async function Home() {
 
   const getYTChannel = async () => {
     const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${process.env.GOOGLE_YOUTUBE_CHANNEL_ID}&key=${process.env.GOOGLE_YOUTUBE_KEY}`, {
+      cache: 'force-cache',
       next: {
         revalidate: 86400 // em segundos: 1 dia
       }
@@ -67,6 +68,7 @@ export default async function Home() {
 
   async function getMediumPosts(username: string) {
     const res = await fetch(`https://medium.com/feed/@${username}`, {
+      cache: 'force-cache',
       next: {
         revalidate: 3600
       }
