@@ -18,6 +18,7 @@ export default async function Home() {
 
   const getUser = async () => {
     const res = await fetch(`https://api.github.com/users/Berohlfs`, {
+      cache: 'force-cache',
       next: {
         revalidate: 86400 // em segundos: 1 dia
       },
@@ -32,6 +33,7 @@ export default async function Home() {
 
   const getRepos = async () => {
     const res = await fetch(`https://api.github.com/users/Berohlfs/repos`, {
+      cache: 'force-cache',
       next: {
         revalidate: 86400 // em segundos: 1 dia
       },
