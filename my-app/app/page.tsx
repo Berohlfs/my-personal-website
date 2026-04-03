@@ -3,7 +3,7 @@ import { Github, Newspaper, Verified, Youtube } from "lucide-react"
 // Libs
 import Parser from 'rss-parser'
 // Types
-import { User, Channel, Repos } from "@/utils/types"
+import { User, Channel, Repos } from "@/types/types"
 // Components
 import { Header } from "./components/sections/Header"
 import { MediumArticles } from "./components/sections/MediumArticles"
@@ -109,7 +109,6 @@ export default async function Home() {
       <PlatformSpecs
         link={'https://github.com/Berohlfs'}
         title={user.login}
-        image_url={user.avatar_url}
         specs={[
           { label: 'repositories', count: user.public_repos },
           { label: 'followers', count: user.followers },
@@ -125,7 +124,8 @@ export default async function Home() {
       <Subtitle title={'Certifications'} Icon={Verified} />
 
       <Certifications />
-
+      
+      {/*
       <Subtitle title={'YouTube Videos'} Icon={Youtube} />
 
       <PlatformSpecs
@@ -137,7 +137,7 @@ export default async function Home() {
           { label: 'total views', count: channel.items[0].statistics.viewCount },
           { label: 'videos', count: channel.items[0].statistics.videoCount },
         ]} />
-
+        */}
     </main>
 
     <Footer />

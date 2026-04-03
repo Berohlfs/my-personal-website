@@ -10,9 +10,9 @@ export const Certifications = () => {
 
     const certificates = [
         { title: 'Meta Front-End Developer', description: 'Professional Certificate', link: 'https://www.coursera.org/account/accomplishments/professional-cert/certificate/AJB8NV4V7YMH', image: '/meta.png' },
-        { title: 'Google Project Management', description: 'In progress...', link: 54, image: '/google.png' },
-        { title: 'Duolingo', description: 'English Test', link: 'https://certs.duolingo.com/132d6d6d394a5f1893e5eb75578892d8', image: '/duolingo.png' },
-        { title: 'Certified Associate in Project Management', description: 'Future Goal', link: 0, image: '/pmi.svg' }
+       // { title: 'Google Project Management', description: 'In progress...', link: 54, image: '/google.png' },
+     //   { title: 'Duolingo', description: 'English Test', link: 'https://certs.duolingo.com/132d6d6d394a5f1893e5eb75578892d8', image: '/duolingo.png' },
+       // { title: 'Certified Associate in Project Management', description: 'Future Goal', link: 0, image: '/pmi.svg' }
     ]
 
     return (<>

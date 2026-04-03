@@ -1,7 +1,7 @@
 // Next
 import Link from "next/link"
 // Types
-import { Repos } from "@/utils/types"
+import { Repos } from "@/types/types"
 // Shadcn
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"

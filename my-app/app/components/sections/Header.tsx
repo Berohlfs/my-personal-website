@@ -11,25 +11,27 @@ type Props = {
 
 export const Header = ({ avatar_url }: Props) => {
     return (
-        <header className={'flex justify-between p-3 items-center fixed top-0 w-full bg-background z-10 border-b'}>
-            <div className={'flex items-center gap-2'}>
-                <Image
-                    src={avatar_url}
-                    width={45}
-                    height={45}
-                    alt={'Profile Picture'}
-                    className={'rounded-full shadow border-3 border-primary'} />
-                <div>
-                    <p className={'text-sm'}>
-                        <strong>Bernardo Rohlfs</strong>
-                    </p>
-                    <p className={'text-muted-foreground text-xs flex items-center gap-1'}>
-                        <Mail size={13} />berohlfs@gmail.com
-                    </p>
+        <header className={'fixed top-0 w-full bg-background z-10 border-b'}>
+            <div className={'max-w-[1200px] mx-auto px-10 py-4 flex justify-between items-center'}>
+                <div className={'flex items-center gap-3'}>
+                    <Image
+                        src={avatar_url}
+                        width={40}
+                        height={40}
+                        alt={'Profile Picture'}
+                        className={'rounded-full shadow'} />
+                    <div>
+                        <p className={'text-sm'}>
+                            <strong>Bernardo Rohlfs</strong>
+                        </p>
+                        <p className={'text-muted-foreground text-xs flex items-center gap-1'}>
+                            <Mail size={13} />berohlfs@gmail.com
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <ModeToggle />
+                <ModeToggle />
+            </div>
         </header>
     )
 }
