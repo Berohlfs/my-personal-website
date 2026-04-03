@@ -1,9 +1,9 @@
 // Icons
-import { Github, Newspaper, Verified, Youtube } from "lucide-react"
+import { Github, Newspaper, Verified } from "lucide-react"
 // Libs
 import Parser from 'rss-parser'
 // Types
-import { User, Channel, Repos } from "@/types/types"
+import { User, Repos } from "@/types/types"
 // Components
 import { Header } from "./components/sections/Header"
 import { MediumArticles } from "./components/sections/MediumArticles"
@@ -46,17 +46,17 @@ export default async function Home() {
     return repos
   }
 
-  const getYTChannel = async () => {
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${process.env.GOOGLE_YOUTUBE_CHANNEL_ID}&key=${process.env.GOOGLE_YOUTUBE_KEY}`, {
-      cache: 'force-cache',
-      next: {
-        revalidate: 86400 // em segundos: 1 dia
-      }
-    })
-    const channel = await res.json() as Channel
+  //const getYTChannel = async () => {
+  //  const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${process.env.GOOGLE_YOUTUBE_CHANNEL_ID}&key=${process.env.GOOGLE_YOUTUBE_KEY}`, {
+  //    cache: 'force-cache',
+  //    next: {
+  //      revalidate: 86400 // em segundos: 1 dia
+  //    }
+  //  })
+  //  const channel = await res.json() as Channel
 
-    return channel
-  }
+  //  return channel
+  //}
 
   const parser = new Parser({
     customFields: {
@@ -94,7 +94,7 @@ export default async function Home() {
   const articles = await getMediumPosts('berohlfs')
   const user = await getUser()
   const repos = await getRepos()
-  const channel = await getYTChannel()
+  //const channel = await getYTChannel()
 
   return (<>
 
