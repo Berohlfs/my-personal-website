@@ -1,5 +1,9 @@
-# 🌐 My Personal Website
+# 🌐 Personal Website
 
-Welcome to the repository of my personal website, built with **Next.js**, **Tailwind CSS**, and **Shadcn UI**.
+Built with:
 
-> 📍 **Live site:** [bernardorohlfs.com](https://bernardorohlfs.com)
+- Next.js
+- Tailwind CSS
+- shadcn/ui
+
+🔗 Live: [https://bernardorohlfs.com](https://bernardorohlfs.com)
