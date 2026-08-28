@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Bernardo Rohlfs — software engineer, under a night sky",
+        alt: "An astronaut floating in a night sky saying: Hi! I'm Bernardo. I'm a software engineer.",
       },
     ],
   },

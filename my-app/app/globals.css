@@ -221,7 +221,7 @@ body {
   transform: translateX(-50%);
   width: max-content;
   max-width: min(320px, 84vw);
-  background: oklch(0.21 0.035 250 / 0.96);
+  background: oklch(35.414% 0.05555 253.239 / 0.96);
   border: 1px solid oklch(0.78 0.15 160 / 0.25);
   border-radius: 14px;
   padding: 0.8rem 0.95rem;
@@ -238,7 +238,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   border: 8px solid transparent;
-  border-top-color: oklch(0.21 0.035 250 / 0.96);
+  border-top-color: oklch(35.414% 0.05555 253.239 / 0.96);
 }
 
 .balloon-head {
