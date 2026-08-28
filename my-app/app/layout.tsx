@@ -30,12 +30,21 @@ export const metadata: Metadata = {
     title: "Bernardo Rohlfs — Software Engineer",
     description:
       "Personal site of Bernardo Rohlfs, software engineer — a small interactive night sky.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Bernardo Rohlfs — software engineer, under a night sky",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Bernardo Rohlfs — Software Engineer",
     description:
       "Personal site of Bernardo Rohlfs, software engineer — a small interactive night sky.",
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
 }
