@@ -54,10 +54,8 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
-      <body className={`${fraunces.variable} ${plexMono.variable}`}>
-        {children}
-      </body>
+    <html lang="en" className={`${fraunces.variable} ${plexMono.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }

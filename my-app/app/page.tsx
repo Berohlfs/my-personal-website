@@ -1,4 +1,5 @@
 import { Fragment } from "react"
+import { Scene } from "./components/Scene"
 
 const NAME = "Bernardo Rohlfs"
 
@@ -15,6 +16,8 @@ export default function Home() {
   return (
     <div className="stage">
       <div className="static-sky" aria-hidden />
+
+      <Scene />
 
       <main className="hud">
         <h1 className="name" aria-label={NAME}>

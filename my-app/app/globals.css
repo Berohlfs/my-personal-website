@@ -240,6 +240,16 @@ body {
   border-radius: 2px;
 }
 
+@media (max-width: 480px) {
+  .links {
+    gap: 1rem;
+  }
+
+  .links a {
+    font-size: 0.85rem;
+  }
+}
+
 .colophon {
   position: absolute;
   left: 0;
