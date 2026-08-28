@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# night constellation
 
-## Getting Started
+The site is one screen: a dark sky rendered on two stacked `<canvas>` layers,
+with the name, a tagline, and four links laid over it as server-rendered HTML.
 
-First, run the development server:
+- **Starfield** — hundreds of depth-biased stars that drift, twinkle, glint,
+  and swirl away from the cursor (repulsion + tangential force, spring-back).
+- **Fireworks** — click/tap the sky to launch a rocket that bursts where you
+  aimed. Hold to charge a bigger burst. Rate-limited, pooled, additive-blended.
+- **Easter eggs** — an occasional shooting star can be caught for a wish; the
+  konami code (`↑ ↑ ↓ ↓ ← → ← → b a`) starts a finale; the console says hi.
+
+## Stack
+
+- [Next.js 15](https://nextjs.org) (App Router, static prerender) + React 19
+- Tailwind CSS v4 (CSS-first config; design tokens in `app/globals.css`)
+- Fraunces + IBM Plex Mono via `next/font`
+- **No animation libraries** — the engine in [`lib/engine/`](lib/engine/) is
+  hand-rolled Canvas 2D: preallocated particle pool, DPR-capped rendering,
+  adaptive quality governor, `visibilitychange` pause. With
+  `prefers-reduced-motion`, the engine never boots and a static CSS sky
+  (`.static-sky`) stands in.
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev     # http://localhost:3000
+pnpm build   # production build (fully static)
+pnpm lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Archived integrations
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The previous version of this site rendered live GitHub, Medium, and YouTube
+data. Those fetchers are preserved — typed, unimported, out of the bundle — in
+[`lib/integrations/`](lib/integrations/), with env var names documented in
+[`.env.example`](.env.example).
