@@ -1,8 +1,12 @@
 # night constellation
 
 The site is one screen: a dark sky rendered on two stacked `<canvas>` layers,
-with the name, a tagline, and four links laid over it as server-rendered HTML.
+and an astronaut (Bernardo) floating in the middle of it.
 
+- **The astronaut** — drifts in zero-g at the center. Poke him and a speech
+  balloon appears: avatar (live from the GitHub API), name, links — and a
+  monologue that gets progressively less patient with every poke, ending in a
+  time loop that starts the whole thing over.
 - **Starfield** — hundreds of depth-biased stars that drift, twinkle, glint,
   and swirl away from the cursor (repulsion + tangential force, spring-back).
 - **Fireworks** — click/tap the sky to launch a rocket that bursts where you
@@ -30,9 +34,10 @@ pnpm build   # production build (fully static)
 pnpm lint
 ```
 
-## Archived integrations
+## Integrations
 
 The previous version of this site rendered live GitHub, Medium, and YouTube
-data. Those fetchers are preserved — typed, unimported, out of the bundle — in
-[`lib/integrations/`](lib/integrations/), with env var names documented in
-[`.env.example`](.env.example).
+data. Those fetchers are preserved in [`lib/integrations/`](lib/integrations/),
+with env var names documented in [`.env.example`](.env.example). `github.ts`
+is wired up again — the astronaut's balloon shows the live GitHub avatar
+(ISR, revalidated daily). Medium and YouTube stay typed but unimported.

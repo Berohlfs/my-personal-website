@@ -2,12 +2,7 @@
 import "./globals.css"
 // Next
 import type { Metadata, Viewport } from "next"
-import { IBM_Plex_Mono, Inter_Tight } from "next/font/google"
-
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-  variable: "--font-inter-tight",
-})
+import { IBM_Plex_Mono } from "next/font/google"
 
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -61,7 +56,7 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" className={`${interTight.variable} ${plexMono.variable}`}>
+    <html lang="en" className={plexMono.variable}>
       <body>{children}</body>
     </html>
   )

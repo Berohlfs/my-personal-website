@@ -1,17 +1,18 @@
-import { Fragment } from "react"
+import { getGithubUser } from "@/lib/integrations/github"
+import { Astronaut } from "./components/Astronaut"
 import { Scene } from "./components/Scene"
+import { LINKS } from "./links"
 
-const NAME = "Bernardo Rohlfs"
+// the pinned avatar URL keeps working even when the API call can't
+const FALLBACK_AVATAR = "https://avatars.githubusercontent.com/u/90404673?v=4"
 
-const LINKS = [
-  { label: "github", href: "https://github.com/Berohlfs" },
-  { label: "linkedin", href: "https://linkedin.com/in/bernardorohlfs" },
-  { label: "medium", href: "https://medium.com/@berohlfs" },
-  { label: "email", href: "mailto:berohlfs@gmail.com" },
-]
-
-export default function Home() {
-  let letterIndex = 0
+export default async function Home() {
+  let avatarUrl = FALLBACK_AVATAR
+  try {
+    avatarUrl = (await getGithubUser()).avatar_url
+  } catch {
+    // GitHub unreachable or unauthorized at build time — use the fallback
+  }
 
   return (
     <div className="stage">
@@ -20,41 +21,20 @@ export default function Home() {
       <Scene />
 
       <main className="hud">
-        <h1 className="name" aria-label={NAME}>
-          {NAME.split(" ").map((word, wi) => (
-            <Fragment key={wi}>
-              {wi > 0 && " "}
-              <span className="word" aria-hidden>
-                {word.split("").map((ch) => (
-                  <span
-                    className="letter"
-                    key={letterIndex}
-                    style={{ "--i": letterIndex++ } as React.CSSProperties}
-                  >
-                    {ch}
-                  </span>
-                ))}
-              </span>
-            </Fragment>
-          ))}
-        </h1>
-
-        <p className="tagline">software engineer. the rest is sky.</p>
-
-        <nav className="links" aria-label="Profiles">
-          {LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              data-spark
-              {...(link.href.startsWith("mailto:")
-                ? {}
-                : { target: "_blank", rel: "noopener noreferrer" })}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <h1 className="sr-only">Bernardo Rohlfs — software engineer</h1>
+        <Astronaut avatarUrl={avatarUrl} />
+        <noscript>
+          <div className="noscript-card">
+            <p>Bernardo Rohlfs — software engineer</p>
+            <nav aria-label="Profiles">
+              {LINKS.map((link) => (
+                <a key={link.label} href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </noscript>
       </main>
 
       <footer className="colophon">

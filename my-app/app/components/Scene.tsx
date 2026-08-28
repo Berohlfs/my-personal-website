@@ -102,24 +102,33 @@ export function Scene() {
     }
     window.addEventListener("keydown", onKeyDown)
 
-    const sparkCleanups: (() => void)[] = []
-    document.querySelectorAll<HTMLElement>("[data-spark]").forEach((el) => {
-      let lastAt = 0
-      const onEnter = () => {
-        const now = performance.now()
-        if (now - lastAt < 300) return
-        lastAt = now
-        const rect = el.getBoundingClientRect()
-        engineRef.current?.sprinkle(rect.left + rect.width / 2, rect.top)
-      }
-      el.addEventListener("pointerenter", onEnter)
-      sparkCleanups.push(() => el.removeEventListener("pointerenter", onEnter))
-    })
+    // delegated, so it keeps working when [data-spark] elements remount
+    // (the astronaut's time loop replaces its DOM node every cycle)
+    const sparkAt = new WeakMap<Element, number>()
+    const onPointerOver = (e: PointerEvent) => {
+      const el = (e.target as Element | null)?.closest?.("[data-spark]")
+      if (!el) return
+      if (e.relatedTarget && el.contains(e.relatedTarget as Node)) return
+      const now = performance.now()
+      if (now - (sparkAt.get(el) ?? 0) < 300) return
+      sparkAt.set(el, now)
+      const rect = el.getBoundingClientRect()
+      engineRef.current?.sprinkle(rect.left + rect.width / 2, rect.top)
+    }
+    document.addEventListener("pointerover", onPointerOver)
+
+    // the astronaut's jetpack compensating for pokes
+    const onAstroPoke = (e: Event) => {
+      const d = (e as CustomEvent<{ x: number; y: number }>).detail
+      if (d) engineRef.current?.sprinkle(d.x, d.y)
+    }
+    window.addEventListener("astro-poke", onAstroPoke)
 
     return () => {
       reduced.removeEventListener("change", onReducedChange)
       window.removeEventListener("keydown", onKeyDown)
-      sparkCleanups.forEach((fn) => fn())
+      document.removeEventListener("pointerover", onPointerOver)
+      window.removeEventListener("astro-poke", onAstroPoke)
       if (toastTimer.current !== null) window.clearTimeout(toastTimer.current)
       teardown()
     }

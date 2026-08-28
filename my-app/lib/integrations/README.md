@@ -1,11 +1,12 @@
-# Archived integrations
+# Integrations
 
 External-API fetchers from the previous version of this site (the content-driven layout with
-GitHub stats, Medium articles and YouTube channel data). The current site doesn't use any of
-them — **nothing here is imported anywhere**, so none of this code ships in the bundle.
+GitHub stats, Medium articles and YouTube channel data).
 
-The folder is intentionally kept inside the TypeScript project so `tsc --noEmit`, `next build`
-and `eslint` keep it compiling. It can be re-wired anytime.
+**In use:** `github.ts` — `getGithubUser()` supplies the astronaut balloon's avatar
+(server-side, cached with daily revalidation). **Archived:** `medium.ts` and `youtube.ts`
+are imported nowhere and ship in no bundle; they're kept inside the TypeScript project so
+`tsc --noEmit`, `next build` and `eslint` keep them compiling. Re-wire anytime.
 
 ## Modules
 
