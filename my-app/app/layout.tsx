@@ -2,13 +2,11 @@
 import "./globals.css"
 // Next
 import type { Metadata, Viewport } from "next"
-import { Fraunces, IBM_Plex_Mono } from "next/font/google"
+import { IBM_Plex_Mono, Inter_Tight } from "next/font/google"
 
-const fraunces = Fraunces({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-fraunces",
+  variable: "--font-inter-tight",
 })
 
 const plexMono = IBM_Plex_Mono({
@@ -63,7 +61,7 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${interTight.variable} ${plexMono.variable}`}>
       <body>{children}</body>
     </html>
   )

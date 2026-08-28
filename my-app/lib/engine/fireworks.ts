@@ -239,13 +239,19 @@ export function createFireworks(
     render(ctx, ptr) {
       const glow = getGlowSprite()
 
+      ctx.lineCap = "round"
       for (let i = 0; i < rockets.length; i++) {
         const r = rockets[i]
         ctx.globalAlpha = 0.35
         ctx.drawImage(glow, r.x - 12, r.y - 12, 24, 24)
+        ctx.globalAlpha = 0.9
+        ctx.strokeStyle = "rgb(255, 250, 235)"
+        ctx.lineWidth = 2
+        ctx.beginPath()
+        ctx.moveTo(r.x - r.vx * 2.5, r.y - r.vy * 2.5)
+        ctx.lineTo(r.x, r.y)
+        ctx.stroke()
         ctx.globalAlpha = 1
-        ctx.fillStyle = "rgb(255, 250, 235)"
-        ctx.fillRect(r.x - 1, r.y - 1, 2, 2)
       }
 
       // charging ring while a hold is building up

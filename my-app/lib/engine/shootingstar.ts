@@ -87,6 +87,15 @@ export function createShootingStar(
       const glow = getGlowSprite()
       ctx.globalAlpha = 0.4
       ctx.drawImage(glow, x - 14, y - 14, 28, 28)
+      // velocity streak behind the head
+      ctx.globalAlpha = 0.85
+      ctx.strokeStyle = "rgb(230, 240, 255)"
+      ctx.lineWidth = 1.6
+      ctx.lineCap = "round"
+      ctx.beginPath()
+      ctx.moveTo(x - vx * 4, y - vy * 4)
+      ctx.lineTo(x, y)
+      ctx.stroke()
       ctx.globalAlpha = 1
       ctx.fillStyle = "rgb(255, 255, 255)"
       ctx.beginPath()

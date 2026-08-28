@@ -39,9 +39,7 @@ export default function Home() {
           ))}
         </h1>
 
-        <p className="tagline">
-          software engineer — building precise, playful things for the web
-        </p>
+        <p className="tagline">software engineer. the rest is sky.</p>
 
         <nav className="links" aria-label="Profiles">
           {LINKS.map((link) => (

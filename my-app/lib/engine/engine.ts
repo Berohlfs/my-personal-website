@@ -136,11 +136,9 @@ export function createEngine(opts: EngineOptions): Engine {
     starsCtx.clearRect(0, 0, size.w, size.h)
     starfield.render(starsCtx)
 
-    // fade the previous fx frame toward transparency (free motion trails),
-    // then draw everything additively for glow
-    fxCtx.globalCompositeOperation = "destination-out"
-    fxCtx.fillStyle = "rgba(0, 0, 0, 0.15)"
-    fxCtx.fillRect(0, 0, size.w, size.h)
+    // fully cleared every frame — motion comes from per-particle velocity
+    // streaks, so nothing ever accumulates or ghosts on the canvas
+    fxCtx.clearRect(0, 0, size.w, size.h)
     fxCtx.globalCompositeOperation = "lighter"
     pool.render(fxCtx)
     fireworks.render(fxCtx, pointer.state)

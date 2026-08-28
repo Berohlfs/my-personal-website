@@ -82,7 +82,7 @@ export function Scene() {
       greeted = true
       console.log(
         "%c☾ bernardo rohlfs",
-        "font: 600 20px Georgia, serif; color: #3fd9a1; text-shadow: 0 0 12px rgba(63, 217, 161, 0.5)"
+        "font: 500 18px ui-monospace, Menlo, monospace; color: #3fd9a1; text-shadow: 0 0 12px rgba(63, 217, 161, 0.5)"
       )
       console.log(
         "%cnice of you to look under the hood.\ntry: ↑ ↑ ↓ ↓ ← → ← → b a",

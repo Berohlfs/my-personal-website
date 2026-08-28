@@ -12,7 +12,7 @@
   --color-accent: oklch(0.78 0.15 160);
   --color-accent-deep: oklch(0.65 0.1559 160.13);
 
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -150,10 +150,9 @@ body {
 
 .name {
   font-family: var(--font-display);
-  font-weight: 340;
-  font-optical-sizing: auto;
+  font-weight: 200;
   font-size: clamp(3rem, 10vw, 8rem);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   line-height: 1.05;
   color: var(--color-ink);
   text-wrap: balance;
