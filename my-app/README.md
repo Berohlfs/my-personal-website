@@ -36,8 +36,8 @@ pnpm lint
 
 ## Integrations
 
-The previous version of this site rendered live GitHub, Medium, and YouTube
+The previous version of this site rendered live GitHub and YouTube
 data. Those fetchers are preserved in [`lib/integrations/`](lib/integrations/),
 with env var names documented in [`.env.example`](.env.example). `github.ts`
 is wired up again — the astronaut's balloon shows the live GitHub avatar
-(ISR, revalidated daily). Medium and YouTube stay typed but unimported.
+(ISR, revalidated daily). YouTube stays typed but unimported.

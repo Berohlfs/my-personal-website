@@ -58,13 +58,6 @@ export type Repos = {
     default_branch: string // "main"
 }[]
 
-export type MediumArticle = {
-    title?: string, // "Some article title"
-    link?: string, // "https://medium.com/@berohlfs/..."
-    description: string, // plain-text preview, ≤200 chars + ellipsis
-    pubDate?: string, // "Tue, 01 Jul 2025 12:00:00 GMT"
-}
-
 export type Channel = {
     kind: string, // "youtube#channelListResponse",
     etag: string, // "pd_GicW72aGfU04YnKLo2wQHoy0",
